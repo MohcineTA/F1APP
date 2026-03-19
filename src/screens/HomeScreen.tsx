@@ -8,6 +8,7 @@ import {
   RefreshControl,
   StatusBar,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Race } from '../types';
@@ -47,7 +48,10 @@ export function HomeScreen({ navigation }: any) {
     <View>
       <View style={styles.hero}>
         <Text style={styles.season}>SAISON {new Date().getFullYear()}</Text>
-        <Text style={styles.heroTitle}>🏎️ Calendrier F1</Text>
+        <View style={styles.titleRow}>
+          <Image source={require('../../assets/icon.png')} style={styles.logo} resizeMode="contain" />
+          <Text style={styles.heroTitle}>Calendrier F1</Text>
+        </View>
         {nextRace && (
           <View style={styles.nextInfo}>
             <Text style={styles.nextLabel}>Prochaine course :</Text>
@@ -133,10 +137,20 @@ const styles = StyleSheet.create({
     letterSpacing: 1.5,
     marginBottom: spacing.xs,
   },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: spacing.sm,
+    gap: spacing.sm,
+  },
+  logo: {
+    width: 32,
+    height: 32,
+    borderRadius: 8,
+  },
   heroTitle: {
     color: colors.text,
     ...typography.h1,
-    marginBottom: spacing.sm,
   },
   nextInfo: {
     flexDirection: 'row',
