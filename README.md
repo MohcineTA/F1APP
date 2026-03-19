@@ -31,19 +31,34 @@ Elle inclut une version Web, iOS et Android construite depuis une base de code u
 
 Vous pouvez ensuite scanner le QR code avec l'application **Expo Go** sur votre téléphone ou appuyer sur `w` pour l'ouvrir dans le navigateur web.
 
-## 📦 Mise à Jour et Déploiement (Push & OTA)
+## 📦 Mises à Jour & Test sur Expo Go
 
-Afin de simplifier le processus de mise en ligne des nouvelles modifications, un script automatisé a été mis en place.
+Avant de publier vos modifications pour tout le monde, vous les testez généralement en local via l'application **Expo Go**.
 
-**Interface locale (Script de déploiement) :**
-Lorsque vous modifiez l'application et souhaitez appliquer les changements instantanément :
+**⚠️ Problèmes d'affichage sur Expo Go ? (Images manquantes, code non pris en compte...)**
+Si vous ajoutez de nouvelles images ou de gros changements mais qu'ils ne s'affichent pas sur votre téléphone, c'est un problème de cache.
+1. Fermez l'application Expo Go sur votre téléphone.
+2. Interrompez le serveur dans votre terminal (`Ctrl + C`).
+3. Relancez en vidant le cache avec la commande :
+   ```bash
+   npx expo start -c
+   ```
+4. Au besoin, si le téléphone ne trouve pas le serveur sur votre réseau Wi-Fi local, utilisez le mode tunnel :
+   ```bash
+   npx expo start --tunnel
+   ```
 
-1. Ouvrez un terminal PowerShell `(Terminal -> Nouveau Terminal` dans VS Code ou Cursor).
+## 🚀 Publier une nouvelle version en Production (OTA)
+
+Afin de simplifier le processus de mise en ligne des nouvelles modifications pour **tous vos utilisateurs finaux**, un script automatisé a été mis en place.
+
+**Comment procéder ?**
+1. Ouvrez un terminal PowerShell `(Terminal -> Nouveau Terminal` dans VS Code).
 2. Exécutez la commande suivante :
    ```powershell
    .\deploy.ps1
    ```
-3. L'outil vous demandera un message décrivant la mise à jour. Saisissez-le et validez avec Entrée.
+3. L'outil vous demandera un message décrivant la mise à jour (ex: `Ajout du logo F1`). Saisissez-le et validez avec Entrée.
 
 **Actions réalisées automatiquement par le script :**
 - 💾 Sauvegarde locale de tous les fichiers modifiés (`git commit`).
