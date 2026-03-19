@@ -58,6 +58,7 @@ export async function scheduleRaceNotification(race: Race): Promise<string | nul
     trigger: {
       type: Notifications.SchedulableTriggerInputTypes.DATE,
       date: notifyBefore,
+      channelId: 'f1-races',
     },
   });
 

@@ -47,7 +47,7 @@ export function HomeScreen({ navigation }: any) {
     <View>
       <View style={styles.hero}>
         <Text style={styles.season}>SAISON {new Date().getFullYear()}</Text>
-        <Text style={styles.heroTitle}>Calendrier F1</Text>
+        <Text style={styles.heroTitle}>🏎️ Calendrier F1</Text>
         {nextRace && (
           <View style={styles.nextInfo}>
             <Text style={styles.nextLabel}>Prochaine course :</Text>
