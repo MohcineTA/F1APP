@@ -49,7 +49,7 @@ export function HomeScreen({ navigation }: any) {
       <View style={styles.hero}>
         <Text style={styles.season}>SAISON {new Date().getFullYear()}</Text>
         <View style={styles.titleRow}>
-          <Image source={require('../../assets/icon.png')} style={styles.logo} resizeMode="contain" />
+          <Image source={require('../../assets/f1.png')} style={styles.logo} resizeMode="contain" />
           <Text style={styles.heroTitle}>Calendrier F1</Text>
         </View>
         {nextRace && (
